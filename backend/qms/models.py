@@ -27,13 +27,13 @@ class Incident(models.Model):
     ]
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    type = models.CharField(max_length=100) # e.g. "Spill", "Equipment"
+    type = models.CharField(max_length=100) 
     description = models.TextField()
     severity = models.CharField(max_length=10, choices=SEVERITY_CHOICES, default='LOW')
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='OPEN')
     reported_at = models.DateTimeField(auto_now_add=True)
     
-    # Optional: reporter name (simplified for assignment)
+    
     reported_by = models.CharField(max_length=100, default="Anonymous")
 
     def __str__(self):
